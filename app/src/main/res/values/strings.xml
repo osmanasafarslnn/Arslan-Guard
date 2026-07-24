@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Arslan Guard</string>
+    <string name="permission_card_title">İzinler Gerekli</string>
+    <string name="permission_usage_missing">Kullanım Erişimi izni verilmedi</string>
+    <string name="permission_overlay_missing">Ekran üstü gösterim izni verilmedi</string>
+    <string name="grant">İzin Ver</string>
+    <string name="apps_locked_title">Uygulamalar</string>
+    <string name="notification_channel_name">Arslan Guard Koruma</string>
+    <string name="notification_text">Uygulamalarınız korunuyor</string>
+    <string name="enter_pin">PIN Girin</string>
+    <string name="unlock">Kilidi Aç</string>
+    <string name="wrong_pin">Yanlış PIN</string>
+    <string name="app_locked_label">Kilitli</string>
+</resources>
