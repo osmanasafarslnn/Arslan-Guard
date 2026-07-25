@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_dark">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textColor="@color/text_primary"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="24dp"
+        android:paddingBottom="8dp" />
+
+    <!-- Ayarlar bölümü (kaydırılabilir) -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="false">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <!-- İzin uyarı kartı -->
+    <LinearLayout
+        android:id="@+id/permissionCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:padding="16dp"
+        android:orientation="vertical"
+        android:background="@drawable/bg_warning_card"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/permission_card_title"
+            android:textColor="@color/warning"
+            android:textStyle="bold"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/txtUsageMissing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/permission_usage_missing"
+            android:textColor="@color/text_secondary" />
+
+        <TextView
+            android:id="@+id/txtOverlayMissing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/permission_overlay_missing"
+            android:textColor="@color/text_secondary" />
+
+        <Button
+            android:id="@+id/btnGrantPermissions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/grant"
+            android:textColor="@color/black"
+            android:background="@drawable/bg_button_accent"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp" />
+
+    </LinearLayout>
+
+    <!-- Kilit Ekranı Görünüm Ayarları Kartı -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:padding="16dp"
+        android:orientation="vertical"
+        android:background="@drawable/bg_card_rounded">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/lock_screen_settings_title"
+            android:textColor="@color/text_primary"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_marginBottom="12dp" />
+
+        <Button
+            android:id="@+id/btnChangePin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/change_pin"
+            android:textColor="@color/black"
+            android:background="@drawable/bg_button_accent"
+            android:layout_marginBottom="14dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/opacity_label"
+            android:textColor="@color/text_secondary"
+            android:textSize="13sp" />
+
+        <SeekBar
+            android:id="@+id/seekOpacity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:progressTint="@color/accent"
+            android:thumbTint="@color/accent"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnChooseBackground"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:text="@string/choose_background"
+                android:textColor="@color/text_primary"
+                android:textSize="12sp"
+                android:background="@drawable/bg_pin_input" />
+
+            <Button
+                android:id="@+id/btnResetBackground"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:text="@string/reset_background"
+                android:textColor="@color/text_primary"
+                android:textSize="12sp"
+                android:background="@drawable/bg_pin_input" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Gelişmiş Güvenlik Ayarları Kartı -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:padding="16dp"
+        android:orientation="vertical"
+        android:background="@drawable/bg_card_rounded">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/advanced_security_title"
+            android:textColor="@color/text_primary"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Intruder Selfie -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/intruder_selfie_toggle"
+                    android:textColor="@color/text_primary"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/intruder_selfie_desc"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp" />
+
+            </LinearLayout>
+
+            <Switch
+                android:id="@+id/switchIntruderSelfie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtCameraPermissionMissing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/camera_permission_missing"
+            android:textColor="@color/warning"
+            android:textSize="11sp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btnGrantCameraPermission"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/grant_camera_permission"
+            android:textColor="@color/text_primary"
+            android:textSize="12sp"
+            android:background="@drawable/bg_pin_input"
+            android:visibility="gone"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/divider"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="14dp" />
+
+        <!-- Re-lock Timeout -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/relock_mode_title"
+            android:textColor="@color/text_primary"
+            android:textSize="13sp"
+            android:layout_marginBottom="6dp" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupRelock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/radioRelockInstant"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/relock_instant"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp"
+                android:buttonTint="@color/accent" />
+
+            <RadioButton
+                android:id="@+id/radioRelockScreenOff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/relock_screen_off"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp"
+                android:buttonTint="@color/accent" />
+
+            <RadioButton
+                android:id="@+id/radioRelockDelay1Min"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/relock_delay_1min"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp"
+                android:buttonTint="@color/accent" />
+
+        </RadioGroup>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/divider"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="14dp" />
+
+        <!-- Fake Crash Cover -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fake_crash_toggle"
+                    android:textColor="@color/text_primary"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fake_crash_desc"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp" />
+
+            </LinearLayout>
+
+            <Switch
+                android:id="@+id/switchFakeCrash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- MIUI / Cihaza Özel İzin Rehberi Kartı -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:padding="16dp"
+        android:orientation="vertical"
+        android:background="@drawable/bg_card_rounded">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/device_permission_guide_title"
+            android:textColor="@color/text_primary"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_marginBottom="6dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/device_permission_guide_desc"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            android:layout_marginBottom="14dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/autostart_permission"
+                android:textColor="@color/text_primary"
+                android:textSize="13sp" />
+
+            <Button
+                android:id="@+id/btnAutoStart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/open_settings"
+                android:textColor="@color/text_primary"
+                android:textSize="12sp"
+                android:background="@drawable/bg_pin_input"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/battery_optimization_permission"
+                android:textColor="@color/text_primary"
+                android:textSize="13sp" />
+
+            <Button
+                android:id="@+id/btnBatteryOptimization"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/open_settings"
+                android:textColor="@color/text_primary"
+                android:textSize="12sp"
+                android:background="@drawable/bg_pin_input"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/background_permission"
+                android:textColor="@color/text_primary"
+                android:textSize="13sp" />
+
+            <Button
+                android:id="@+id/btnBackgroundPermission"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/open_settings"
+                android:textColor="@color/text_primary"
+                android:textSize="12sp"
+                android:background="@drawable/bg_pin_input"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/apps_locked_title"
+        android:textColor="@color/text_secondary"
+        android:textSize="14sp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="8dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerApps"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:clipToPadding="false" />
+
+</LinearLayout>
