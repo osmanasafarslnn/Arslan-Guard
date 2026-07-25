@@ -1,5 +1,4 @@
 name: Arslan Guard
-
 on:
   push:
     branches: [ "main", "master" ]
@@ -9,6 +8,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    # Eğer projeniz bir alt klasördeyse buraya klasör adını yazın (örn: working-directory: ./MyProject)
+    # Eğer kök dizindeyse alt klasör ayarına gerek yoktur.
 
     steps:
       - name: Checkout repository
@@ -23,12 +25,15 @@ jobs:
 
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
+        # Proje alt klasördeyse aşağıdaki satırın başındaki '#' işaretini kaldırıp klasör adını yazın:
+        # working-directory: ./AltKlasorAdiniz
 
       - name: Build Debug APK
         run: ./gradlew assembleDebug --stacktrace
+        # working-directory: ./AltKlasorAdiniz
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
           name: Arslan-Guard-Debug-APK
-          path: app/build/outputs/apk/debug/app-debug.apk
+          path: '**/build/outputs/apk/debug/*.apk'
