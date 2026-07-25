@@ -1,5 +1,6 @@
 package com.arslan.guard;
 
+import android.text.TextUtils;
 import android.content.Context;
 import android.content.SharedPreferences;
 
