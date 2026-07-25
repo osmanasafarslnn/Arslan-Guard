@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/bg_card"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/panic_pin_hint"
+        android:textColor="@color/text_primary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/panic_pin_desc"
+        android:textColor="@color/text_secondary"
+        android:textSize="12sp"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/editPanicPin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/new_pin_hint"
+        android:inputType="numberPassword"
+        android:textColorHint="@color/text_secondary"
+        android:textColor="@color/text_primary"
+        android:background="@drawable/bg_pin_input"
+        android:padding="12dp"
+        android:maxLength="8"
+        android:layout_marginBottom="12dp" />
+
+    <EditText
+        android:id="@+id/editPanicPinConfirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/confirm_pin_hint"
+        android:inputType="numberPassword"
+        android:textColorHint="@color/text_secondary"
+        android:textColor="@color/text_primary"
+        android:background="@drawable/bg_pin_input"
+        android:padding="12dp"
+        android:maxLength="8" />
+
+    <TextView
+        android:id="@+id/txtPanicPinError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/warning"
+        android:textSize="12sp"
+        android:layout_marginTop="10dp"
+        android:visibility="gone" />
+
+</LinearLayout>
