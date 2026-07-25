@@ -1,4 +1,5 @@
 name: Arslan Guard
+
 on:
   push:
     branches: [ "main", "master" ]
@@ -19,21 +20,14 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-          cache: 'gradle'
 
-      - name: Grant Execute Permission for Gradlew (If Exists)
-        run: |
-          if [ -f "./gradlew" ]; then
-            chmod +x gradlew
-          fi
+      - name: Setup Gradle 8.4
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: '8.4'
 
       - name: Build Debug APK
-        run: |
-          if [ -f "./gradlew" ]; then
-            ./gradlew assembleDebug --stacktrace
-          else
-            gradle assembleDebug --stacktrace
-          fi
+        run: gradle assembleDebug --stacktrace
 
       - name: Upload Debug APK
         uses: actions/upload-artifact@v4
