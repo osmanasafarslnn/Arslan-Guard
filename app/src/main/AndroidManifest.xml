@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Kilit ekranını diğer uygulamaların üzerinde göstermek için gerekli -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <!-- Cihaz yeniden başladığında servisi otomatik başlatmak için -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <!-- Ön planda çalışan servis (Android 9+ için zorunlu) -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <!-- Android 14 (API 34) için foreground service tipi beyanı zorunlu -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+
+    <!-- Hangi uygulamanın ön planda olduğunu tespit etmek için (Kullanım Erişimi izni, Ayarlar'dan verilir) -->
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" />
+
+    <!-- Cihaz kapanıp açıldığında servisi ayakta tutmak için (isteğe bağlı, pil optimizasyonu istisnası) -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- Android 11+ (API 30+) yüklü uygulama listesini görebilmek için -->
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="QueryAllPackagesPermission" />
+
+    <application
+        android:name=".AppLockApplication"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppLock"
+        tools:targetApi="34">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppLock">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".SetupPinActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppLock" />
+
+        <!-- Kilit ekranı: kilitli bir kayıt üstünde açılır, kendi görev (task) yığınında çalışır -->
+        <activity
+            android:name=".LockScreenActivity"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
+            android:showWhenLocked="true"
+            android:theme="@style/Theme.AppLock.NoActionBar" />
+
+        <service
+            android:name=".AppLockService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="app-lock-monitoring" />
+        </service>
+
+        <receiver
+            android:name=".BootReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>

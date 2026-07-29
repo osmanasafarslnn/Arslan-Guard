@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingTop="64dp">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/setup_pin_title"
+        android:textColor="@color/text_primary"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:gravity="center"
+        android:text="@string/setup_pin_subtitle"
+        android:textColor="@color/text_secondary"
+        android:textSize="14sp" />
+
+    <!-- Girilen PIN hanelerini gösteren noktalar -->
+    <LinearLayout
+        android:id="@+id/dotsContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:orientation="horizontal">
+
+        <View android:id="@+id/dot1" android:layout_width="14dp" android:layout_height="14dp" android:layout_margin="8dp" android:background="@drawable/dot_empty" />
+        <View android:id="@+id/dot2" android:layout_width="14dp" android:layout_height="14dp" android:layout_margin="8dp" android:background="@drawable/dot_empty" />
+        <View android:id="@+id/dot3" android:layout_width="14dp" android:layout_height="14dp" android:layout_margin="8dp" android:background="@drawable/dot_empty" />
+        <View android:id="@+id/dot4" android:layout_width="14dp" android:layout_height="14dp" android:layout_margin="8dp" android:background="@drawable/dot_empty" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="@string/pin_mismatch"
+        android:textColor="@color/error"
+        android:textSize="13sp"
+        android:visibility="invisible" />
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- 3x4 PIN tuş takımı -->
+    <include layout="@layout/view_pin_keypad" />
+
+</LinearLayout>

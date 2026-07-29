@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">App Lock</string>
+    <string name="title_apps">Uygulamalar</string>
+    <string name="search_hint">Uygulama ara…</string>
+
+    <string name="setup_pin_title">Bir PIN Belirle</string>
+    <string name="setup_pin_subtitle">Uygulamalarını korumak için 4 haneli bir PIN gir</string>
+    <string name="confirm_pin_subtitle">PIN\'i tekrar gir</string>
+    <string name="pin_mismatch">PIN\'ler eşleşmiyor, tekrar dene</string>
+
+    <string name="enter_pin">PIN\'i Gir</string>
+    <string name="wrong_pin">Yanlış PIN</string>
+    <string name="use_pattern">Desen kullan</string>
+    <string name="use_pin">PIN kullan</string>
+    <string name="draw_pattern">Kilidi açmak için deseni çiz</string>
+    <string name="wrong_pattern">Yanlış desen, tekrar dene</string>
+
+    <string name="permission_overlay_title">Ekranın Üzerine Çizim İzni</string>
+    <string name="permission_overlay_desc">Kilit ekranının diğer uygulamaların üzerinde gösterilebilmesi için bu izni ver.</string>
+    <string name="permission_usage_title">Kullanım Erişimi İzni</string>
+    <string name="permission_usage_desc">Hangi uygulamanın açıldığını tespit edebilmek için bu izni ver.</string>
+    <string name="grant_permission">İzin Ver</string>
+
+    <string name="service_notification_title">App Lock Aktif</string>
+    <string name="service_notification_text">Uygulamalarınız korunuyor</string>

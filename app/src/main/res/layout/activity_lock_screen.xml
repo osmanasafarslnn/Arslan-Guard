@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/overlay_scrim">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_dark"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="72dp">
+
+        <ImageView
+            android:id="@+id/ivLockedAppIcon"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:contentDescription="@null" />
+
+        <TextView
+            android:id="@+id/tvLockedAppName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvLockStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/enter_pin"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp" />
+
+        <!-- PIN modu -->
+        <LinearLayout
+            android:id="@+id/pinModeContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <View android:id="@+id/lockDot1" android:layout_width="14dp" android:layout_height="14dp" android:layout_margin="8dp" android:background="@drawable/dot_empty" />
+                <View android:id="@+id/lockDot2" android:layout_width="14dp" android:layout_height="14dp" android:layout_margin="8dp" android:background="@drawable/dot_empty" />
+                <View android:id="@+id/lockDot3" android:layout_width="14dp" android:layout_height="14dp" android:layout_margin="8dp" android:background="@drawable/dot_empty" />
+                <View android:id="@+id/lockDot4" android:layout_width="14dp" android:layout_height="14dp" android:layout_margin="8dp" android:background="@drawable/dot_empty" />
+            </LinearLayout>
+
+            <Space android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1" />
+
+            <include layout="@layout/view_pin_keypad" />
+        </LinearLayout>
+
+        <!-- Desen modu -->
+        <com.example.applock.PatternLockView
+            android:id="@+id/patternView"
+            android:layout_width="280dp"
+            android:layout_height="280dp"
+            android:layout_marginTop="32dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvSwitchToPin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="8dp"
+            android:text="@string/use_pin"
+            android:textColor="@color/primary"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+    </LinearLayout>
+</FrameLayout>
