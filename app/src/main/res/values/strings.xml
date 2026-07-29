@@ -24,3 +24,4 @@
 
     <string name="service_notification_title">App Lock Aktif</string>
     <string name="service_notification_text">Uygulamalarınız korunuyor</string>
+</resources>
